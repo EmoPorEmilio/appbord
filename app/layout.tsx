@@ -5,7 +5,7 @@ import './globals.css';
 const jost = Jost({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: `BORD - Máxima ciencia y verdad en formato digital`,
+  title: `BORD - Máxima ciencia`,
   description:
     'WebApp para seguir e interactuar con los contenidos de Rebord y H.A.G.O.V.',
 };
