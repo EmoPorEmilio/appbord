@@ -22,8 +22,7 @@ animate-gradient-x`;
 
   useEffect(() => {
     const new_intv = setInterval(()=>{
-      console.log("test");
-            var link = document?.querySelector("link[rel~='icon']");
+            let link: HTMLLinkElement   | null | undefined = document?.querySelector("link[rel~='icon']");
       if (!link) {
           link = document!.createElement('link');
           link.rel = 'icon';
@@ -36,7 +35,7 @@ animate-gradient-x`;
       link.href = '/favicon-off.png';
 
       }
-    }, 50);
+    }, 20);
     setIntv(new_intv);
     return () => {
       setIntv((prev_intv: any)=>{
