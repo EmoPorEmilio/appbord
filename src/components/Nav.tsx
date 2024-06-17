@@ -1,3 +1,6 @@
+import { IoHome, IoMenu } from 'solid-icons/io';
+import { FaSolidGamepad, FaSolidCircleUser } from 'solid-icons/fa';
+
 export default function Nav(props: any) {
   return (
     <div class='flex flex-col h-[100dvh] w-[100dvw] bg-bg-400 antialiased'>
@@ -5,8 +8,7 @@ export default function Nav(props: any) {
         <div class='px-4 flex w-full mx-auto h-full items-center justify-between'>
           <img src='/logo.svg' class='w-[111px] h-[]' alt='logo' />
           <div class='flex justify-center'>
-            {//<MdMenu color='#4C6477' size='36px' />
-}
+            <IoMenu color='#4C6477' size='32px' />  
           </div>
         </div>
       </nav>
@@ -16,9 +18,9 @@ export default function Nav(props: any) {
       </main>
       <nav class='h-14 w-full'>
         <div class='flex w-full mx-auto h-full items-center justify-between px-8'>
-          {/*<MdHome color='#4C6477' size='36px' />
-          <MdVideogameAsset color='#B8DFFF' size='36px' />
-          <MdAccountCircle color='#4C6477' size='36px' />*/}
+          <IoHome color='#4C6477' size='32px' />
+          <FaSolidGamepad color='#4C6477' size='32px' />  
+          <FaSolidCircleUser color='#4C6477' size='32px' />
         </div>
       </nav>
     </div>
