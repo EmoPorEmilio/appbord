@@ -1,6 +1,6 @@
 export default function Nav(props: any) {
   return (
-    <>
+    <div class='flex flex-col h-[100dvh] w-[100dvw] bg-bg-400 antialiased'>
       <nav class='h-14 w-full'>
         <div class='px-4 flex w-full mx-auto h-full items-center justify-between'>
           <img src='/logo.svg' class='w-[111px] h-[]' alt='logo' />
@@ -21,6 +21,6 @@ export default function Nav(props: any) {
           <MdAccountCircle color='#4C6477' size='36px' />*/}
         </div>
       </nav>
-      </>
+    </div>
   );
 }
