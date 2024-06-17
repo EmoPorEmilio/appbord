@@ -13,8 +13,6 @@ function listener() {
 };
 
 export default function Mobile() {
-  
-
   onMount(() => {
     if (!isServer) {
       document && document.addEventListener('visibilitychange', listener);
