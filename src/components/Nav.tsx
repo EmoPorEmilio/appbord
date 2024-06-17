@@ -1,4 +1,4 @@
-export default function Nav(props) {
+export default function Nav(props: any) {
   return (
     <>
       <nav class='h-14 w-full'>
