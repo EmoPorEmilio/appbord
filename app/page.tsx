@@ -5,10 +5,8 @@ import {
   MdHome,
   MdVideogameAsset,
   MdAccountCircle,
-  MdOutlineStar,
 } from 'react-icons/md';
-import { sen } from '@/app/fonts';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect,  } from 'react';
 export const runtime = 'edge';
 
 export default function Mobile() {
@@ -17,34 +15,23 @@ export default function Mobile() {
     bg-accent-500
 animate-gradient-x`;
   };
-  const [_, setIntv] = useState<any>(null);
   const document = typeof window !== 'undefined' ? window.document : null;
+  const listener = useCallback(() => {
+    let link: HTMLLinkElement   | null | undefined = document?.querySelector("link[rel~='icon']");
+    if (link) {
+      if (document?.visibilityState === 'visible'){
+        link.href = '/favicon-on.png';
+      } else if (document?.visibilityState === 'hidden') {
+        link.href = '/favicon-off.png';
+      }
+    }}, [document]);
 
   useEffect(() => {
-    const new_intv = setInterval(()=>{
-            let link: HTMLLinkElement   | null | undefined = document?.querySelector("link[rel~='icon']");
-      if (!link) {
-          link = document!.createElement('link');
-          link.rel = 'icon';
-          document!.head.appendChild(link);
-      }
-      if (document?.hasFocus()) {
-      link.href = '/favicon-on.png' ;
-
-      } else {
-      link.href = '/favicon-off.png';
-
-      }
-    }, 20);
-    setIntv(new_intv);
+    addEventListener('visibilitychange', listener);
     return () => {
-      setIntv((prev_intv: any)=>{
-        clearInterval(prev_intv);
-        return null;
-      }
-      );
-    };
-  }, [document]);
+      removeEventListener('visibilitychange', listener);
+    }
+  }, [listener]);
 
   return (
     <>
