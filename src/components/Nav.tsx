@@ -19,6 +19,7 @@ export default function Nav(props: any) {
       <nav class='h-14 w-full'>
         <div class='flex w-full mx-auto h-full items-center justify-between px-8'>
           <IoHome color='#4C6477' size='32px' />
+          <img src='/haa.png' class='w-[32px] h-[32px]' alt='logo' />
           <FaSolidGamepad color='#4C6477' size='32px' />  
           <FaSolidCircleUser color='#4C6477' size='32px' />
         </div>
