@@ -1,26 +1,31 @@
 import { onCleanup, onMount } from "solid-js";
+import { isServer } from 'solid-js/web'
+
+function listener() {
+  let link: HTMLLinkElement   | null | undefined = document?.querySelector("link[rel~='icon']") as HTMLLinkElement;
+  if (link) {
+    if (document?.visibilityState === 'visible'){
+      link.href = '/favicon-on.png';
+    } else if (document?.visibilityState === 'hidden') {
+      link.href = '/favicon-off.png';
+    }
+  }
+};
 
 export default function Mobile() {
   
-  const listener = () => {
-    let link: HTMLLinkElement   | null | undefined = document?.querySelector("link[rel~='icon']") as HTMLLinkElement;
-    if (link) {
-      if (document?.visibilityState === 'visible'){
-        link.href = '/favicon-on.png';
-      } else if (document?.visibilityState === 'hidden') {
-        link.href = '/favicon-off.png';
-      }
-    }
-  };
+
   onMount(() => {
-    
-    document && document.addEventListener('visibilitychange', listener);
-  
+    if (!isServer) {
+      document && document.addEventListener('visibilitychange', listener);
+    }
   });
   
-    onCleanup(() => {
-        document && document.removeEventListener('visibilitychange', listener);
-    });
+  onCleanup(() => {
+    if (!isServer) {
+      document && document.removeEventListener('visibilitychange', listener);
+    }
+  });
   
   return (
     <>
